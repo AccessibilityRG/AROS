@@ -52,9 +52,7 @@ These parameters are directly fed to `HY::Geo::ttmsg`. All variable names are tr
 | sms_api_id | BulkSMS password. |
 | from | From address to use when sending emails. The default address is nobody@nodomain. |
 | subject | Subject to use when sending emails. The default subject is "Notification from ttmsg". The subject string should be in UTF-8. |
-| replace_8bit_sms | Setting this to true turns on 8-bit replacement behaviour. This is useful when your application produces 8-bit messages but you want to send only 7-bit SMS messages. 
-
-The option replaces 8-bit characters with a-z equivalents for all outbound messages. Known characters are replaced with 7-bit correspondents. Unknown characters are replaced with \_ (underscore). |
+| replace_8bit_sms | Setting this to true turns on 8-bit replacement behaviour. This is useful when your application produces 8-bit messages but you want to send only 7-bit SMS messages.<br><br>The option replaces 8-bit characters with a-z equivalents for all outbound messages. Known characters are replaced with 7-bit correspondents. Unknown characters are replaced with \_ (underscore). |
 | cost_route_sms | Sets BulkSMS cost_route parameter. For more information see [BulkSMS documentation](http://www.bulksms.co.uk/docs/eapi/submission/send_sms/). The default cost_route is 1 which is set by `Net::SMS::BulkSMS`. |
 
 ### Section "Timezone"
