@@ -72,7 +72,7 @@ This section is used by `sms` and `watchdog`.
 | message | The template for outbound messages (email or SMS). Following variables can be used:<br>#TARGET# Replaced with the target string.<br>#LOCATION# Replaced with the location string.<br>#DISTANCE# Replaced with the distance between current location of the target and the location.<br>#DIRECTION# Replaced with the correct direction tag (either value "direction_up" or "direction_down")<br>#TIME# Replaced with the last timestamp (time part) of the target's location. This timestamp is affected by contact's timezone (table "contacts" column "timezone"), time format (table "contacts" column "fmt_time") and contact's locale (table "contacts" column "locale).<br>#DATE# Replaced with the last timestamp (date part) of the target's location. This timestamp is affected by contact's timezone (table "contacts" column "timezone"), date format (table "contacts" column "fmt_date") and contact's locale (table "contacts" column "locale). |
 | direction_up | If the target is moving upwards with the routepoint numbers the #DIRECTION# tag in the outbound message is replaced with this value. |
 | direction_down | If the target is moving downwards with the routepoint numbers the #DIRECTION# tag in the outbound message is replaced with this value. |
-| target | Defines a single target to follow. The script does not report all targets found in table ttget but only the ones defined by this directive. The value has following syntax: "target_name,route_id". To define multiple targets use multiple target definitions: `target=Titanic,1`<br>`target=HMS Royal Oak,2`<br>`target=USS Yorktown,3` |
+| target | Defines a single target to follow. The script does not report all targets found in table ttget but only the ones defined by this directive. The value has following syntax: "target_name,route_id". To define multiple targets use multiple target definitions:<br>`target=Titanic,1`<br>`target=HMS Royal Oak,2`<br>`target=USS Yorktown,3` |
 | max_timestampdiff | Skip pairs of timestamps if their timestamps differ more than MAX_TIMESTAMPDIFF. Generally this limits too old timstamps to result an SMS notification.<br>To skip all test regarding MAX_TIMESTAMPDIFF leave it undefined.<br>Unit: seconds |
 | from | If set, overrides setting "from" from section "Message" when executing sms. |
 | subject | If set, overrides setting "subject" from section "Message" when executing sms. |
@@ -105,7 +105,7 @@ This section use used by `spotget`.
 Examples of meaningful values for `url`:
 
 * url=HENRY,0-7446542,https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/0eJnc9zXFKBVdvo4q5RlF1louqzjhdXYZ/message.xml
-* url=HENRY,0-7446542,https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/0eJnc9zXFKBVdvo4q5RlF1louqkjahXYZ/message.xml?feedPassword=123456 |
+* url=HENRY,0-7446542,https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/0eJnc9zXFKBVdvo4q5RlF1louqkjahXYZ/message.xml?feedPassword=123456
 
 ### Sample
 ```

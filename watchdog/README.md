@@ -1,7 +1,7 @@
 watchdog
 ========
 
-Follows table ttget for passive targets. Contacts with magic location ID "_WATCHDOG_" are notified.
+Follows table ttget for passive targets. Contacts with magic location ID "\_\_WATCHDOG\_\_" are notified.
 
 Configuration
 -------------
