@@ -69,28 +69,11 @@ This section is used by `sms` and `watchdog`.
 |------|---------|
 | debug_level | Selects level of human-readmable logging. 0 or `undef` means no messages will be printed, 5 (the max) prints all messages. Messages will be printed to STDOUT. For more information see perldoc of `sms` for `report_debug()`. |
 | debug_csv | If set the value is used as a filename for CSV debug file. If the value is not set with direct assignment (i.e. $DEBUG_CSV is not defined) its value is tried to read from environment variable DEBUG_CSV. For more information see perldoc of `sms`, "Notes concerning DEBUG_CSV". |
-| message | The template for outbound messages (email or SMS). Following variables can be used: 
-
-* #TARGET# Replaced with the target string.
-* #LOCATION# Replaced with the location string.
-* #DISTANCE# Replaced with the distance between current location of the target and the location.
-* #DIRECTION# Replaced with the correct direction tag (either value "direction_up" or "direction_down")
-* #TIME# Replaced with the last timestamp (time part) of the target's location. This timestamp is affected by contact's timezone (table "contacts" column "timezone"), time format (table "contacts" column "fmt_time") and contact's locale (table "contacts" column "locale).
-* #DATE# Replaced with the last timestamp (date part) of the target's location. This timestamp is affected by contact's timezone (table "contacts" column "timezone"), date format (table "contacts" column "fmt_date") and contact's locale (table "contacts" column "locale). |
+| message | The template for outbound messages (email or SMS). Following variables can be used:<br>#TARGET# Replaced with the target string.<br>#LOCATION# Replaced with the location string.<br>#DISTANCE# Replaced with the distance between current location of the target and the location.<br>#DIRECTION# Replaced with the correct direction tag (either value "direction_up" or "direction_down")<br>#TIME# Replaced with the last timestamp (time part) of the target's location. This timestamp is affected by contact's timezone (table "contacts" column "timezone"), time format (table "contacts" column "fmt_time") and contact's locale (table "contacts" column "locale).<br>#DATE# Replaced with the last timestamp (date part) of the target's location. This timestamp is affected by contact's timezone (table "contacts" column "timezone"), date format (table "contacts" column "fmt_date") and contact's locale (table "contacts" column "locale). |
 | direction_up | If the target is moving upwards with the routepoint numbers the #DIRECTION# tag in the outbound message is replaced with this value. |
 | direction_down | If the target is moving downwards with the routepoint numbers the #DIRECTION# tag in the outbound message is replaced with this value. |
-| target | Defines a single target to follow. The script does not report all targets found in table ttget but only the ones defined by this directive. The value has following syntax: "target_name,route_id". To define multiple targets use multiple target definitions:
- 	
-```
-target=Titanic,1
-target=HMS Royal Oak,2
-target=USS Yorktown,3 
-```|
-| max_timestampdiff | Skip pairs of timestamps if their timestamps differ more than MAX_TIMESTAMPDIFF. Generally this limits too old timstamps to result an SMS notification.
-	
-To skip all test regarding MAX_TIMESTAMPDIFF leave it undefined.
-
-Unit: seconds |
+| target | Defines a single target to follow. The script does not report all targets found in table ttget but only the ones defined by this directive. The value has following syntax: "target_name,route_id". To define multiple targets use multiple target definitions: `target=Titanic,1`<br>`target=HMS Royal Oak,2`<br>`target=USS Yorktown,3` |
+| max_timestampdiff | Skip pairs of timestamps if their timestamps differ more than MAX_TIMESTAMPDIFF. Generally this limits too old timstamps to result an SMS notification.<br>To skip all test regarding MAX_TIMESTAMPDIFF leave it undefined.<br>Unit: seconds |
 | from | If set, overrides setting "from" from section "Message" when executing sms. |
 | subject | If set, overrides setting "subject" from section "Message" when executing sms. |
 
@@ -100,17 +83,8 @@ This section is used only by `watchdog`.
 
 | name | purpose |
 |------|---------|
-| target | Defines a single target to follow. The script does not report all targets found in table ttget but only the ones defined by this directive. The value has following syntax: "target_name,route_id". To define multiple targets use multiple target definitions:
- 	
-```
-target=Titanic,1
-target=HMS Royal Oak,2
-target=USS Yorktown,3 
-```|
-| message | The template for outbound messages (email or SMS). Following variables can be used:
- 	
-* #TARGET# Replaced with the target string
-* #TIMESTAMP# Replaced with the (outdated) timestamp |
+| target | Defines a single target to follow. The script does not report all targets found in table ttget but only the ones defined by this directive. The value has following syntax: "target_name,route_id". To define multiple targets use multiple target definitions:<br>`target=Titanic,1`<br>`target=HMS Royal Oak,2`<br>`target=USS Yorktown,3` |
+| message | The template for outbound messages (email or SMS). Following variables can be used:<br>#TARGET# Replaced with the target string<br>#TIMESTAMP# Replaced with the (outdated) timestamp |
 | notify_limit | Notification limit in seconds. If the last active location of a target is older than notify_limit the notifications for this target will be sent. |
 | debug_level | Set to 1 to turn debug messages on. |
 | from | If set, overrides setting "from" from section "Message" when executing watchdog. |
@@ -126,12 +100,9 @@ This section use used by `spotget`.
 | browser_id | Browser ID sent to web server (Spot API web server). Defaults to "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 1.1.4322)" |
 | debug | Set this to 1 to get debug messages. |
 | warning | Set this to 1 to get warning messages. |
-| url | Spotget API URLs to follow. The URL value has three comma-separated fields:
-1. Device ID that will be written to database ttget (e.g. "HENRY-7"). This does not have to have any correspondence with any of Spot site values.
-2. Spot device ID that will be used to select data of the desired device (e.g. "0-7446484").
-3. Spot API URL (see [Spot documentation](http://faq.findmespot.com/index.php?action=showEntry&data=69)). Note that you have to use XML URL:s (not JSON URL:s).
+| url | Spotget API URLs to follow. The URL value has three comma-separated fields:<br>1. Device ID that will be written to database ttget (e.g. "HENRY-7"). This does not have to have any correspondence with any of Spot site values.<br>2. Spot device ID that will be used to select data of the desired device (e.g. "0-7446484").<br>3. Spot API URL (see [Spot documentation](http://faq.findmespot.com/index.php?action=showEntry&data=69)). Note that you have to use XML URL:s (not JSON URL:s). |
 
-Examples of meaningful values:
+Examples of meaningful values for `url`:
 
 * url=HENRY,0-7446542,https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/0eJnc9zXFKBVdvo4q5RlF1louqzjhdXYZ/message.xml
 * url=HENRY,0-7446542,https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/0eJnc9zXFKBVdvo4q5RlF1louqkjahXYZ/message.xml?feedPassword=123456 |
