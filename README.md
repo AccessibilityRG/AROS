@@ -100,12 +100,12 @@ This section use used by `spotget`.
 | browser_id | Browser ID sent to web server (Spot API web server). Defaults to "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; .NET CLR 1.1.4322)" |
 | debug | Set this to 1 to get debug messages. |
 | warning | Set this to 1 to get warning messages. |
-| url | Spotget API URLs to follow. The URL value has three comma-separated fields:<br>1. Device ID that will be written to database ttget (e.g. "HENRY-7"). This does not have to have any correspondence with any of Spot site values.<br>2. Spot device ID that will be used to select data of the desired device (e.g. "0-7446484").<br>3. Spot API URL (see [Spot documentation](http://faq.findmespot.com/index.php?action=showEntry&data=69)). Note that you have to use XML URL:s (not JSON URL:s). |
+| url | Spotget API URLs to follow. The URL value has three comma-separated fields:<br>1. Device ID that will be written to database ttget (e.g. "BOAT-7"). This does not have to have any correspondence with any of Spot site values.<br>2. Spot device ID that will be used to select data of the desired device (e.g. "0-7446484").<br>3. Spot API URL (see [Spot documentation](http://faq.findmespot.com/index.php?action=showEntry&data=69)). Note that you have to use XML URL:s (not JSON URL:s). |
 
 Examples of meaningful values for `url`:
 
-* url=HENRY,0-7446542,https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/0eJnc9zXFKBVdvo4q5RlF1louqzjhdXYZ/message.xml
-* url=HENRY,0-7446542,https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/0eJnc9zXFKBVdvo4q5RlF1louqkjahXYZ/message.xml?feedPassword=123456
+* url=BOAT1,0-7446542,https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/0eJnc9zXFKBVdvo4q5RlF1louqzjhdXYZ/message.xml
+* url=BOAT1,0-7446542,https://api.findmespot.com/spot-main-web/consumer/rest-api/2.0/public/feed/0eJnc9zXFKBVdvo4q5RlF1louqkjahXYZ/message.xml?feedPassword=123456
 
 ### Sample
 ```
