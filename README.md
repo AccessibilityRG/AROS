@@ -126,9 +126,9 @@ Examples of meaningful values for `url`:
 	debug_level=5
 	; debug_csv=somefile.csv
 	message=La embarcación #TARGET# está llegando a #LOCATION# (#DIRECTION#). La distancia es ahora #DISTANCE# kilometros.
-	target=GILMER V,1
-	target=HENRY,2
-	target=LINARES,3
+	target=BOAT 1,1
+	target=BOAT 2,2
+	target=BOAT 3,3
 	max_timestampdiff=172800
 	direction_up=surcando
 	direction_down=bajando
